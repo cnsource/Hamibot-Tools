@@ -7,7 +7,7 @@
     发现执行另外一个脚本能获取到正常的坐标位置，原方法使用了engines.exeScript()方法，
     启动另一个脚本，在这里函数可以看作另一个脚本。但是，两个脚本是异步执行，没有说是
     子脚本启动了，主线程脚本就阻塞了，我们有时候是需要阻塞的，那么可以使用BlockEngines
-    BlockEngines属于伪阻塞，不能使用BlockEngines同时启动多个子脚本。最多一个!
+    BlockEngines属于伪阻塞，可以使用BlockEngines同时启动多个子脚本。按顺序执行
     大家可以去写一下校园集结号上报界面自动选择口号和体温的功能。不过脚本要从点击我要上报按钮开始写！
 
 >使用步骤：
@@ -44,10 +44,19 @@
         }
         console.hide()
     }
+   function myfun2(){
+  		console.show()
+  		for(var i = 0;i<10;i++){
+       		console.log(i)
+        	sleep(800)
+        }
+        console.hide()
+    }
     ```
 
 3. 运行子脚本 
    ```js
-    BlockEngines.instance().run("myfun",myfun.toString())
+    lockEngines.instance().run("myfun",myfun.toString())
+                          .run("myfun2",myfun2.toString())
    ```
     
