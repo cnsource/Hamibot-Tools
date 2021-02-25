@@ -1,4 +1,3 @@
-//<引入 SyncEngins
 var BlockEngines = {
     instance : function(){
         let blockEngines = {}
@@ -15,15 +14,21 @@ var BlockEngines = {
         return blockEngines
     }
 }
-//引入>
-
-//<使用 BlockEngins
-//说明： run方法两个参数----1.  函数名
-//                      2.  函数名.toString()
-//返回值：BlockEngines对象
-BlockEngines.instance().run("func-name",func-name.toString())
-//使用>
-
-
-//使用案例见README.md文档中的 BlockEngines
-
+function myfun(){
+    console.show()
+    for(var i = 0;i<10;i++){
+        console.log(i)
+        sleep(800)
+    }
+    console.hide()
+}
+function myfun2(){
+    console.show()
+    for(var i = 0;i<10;i++){
+        console.log(i)
+        sleep(800)
+    }
+    console.hide()
+}
+BlockEngines.instance().run("myfun",myfun.toString()).run("myfun2",myfun2.toString())
+log("脚本执行完毕")
