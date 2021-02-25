@@ -4,10 +4,11 @@ var BlockEngines = {
         let blockEngines = {}
         blockEngines.run = function(name,funstr){
             let es = engines.all().length
+            let ns = 0
             engines.execScript(name, name+"();\n" + funstr);
             do{
                 sleep(200)
-                let ns = engines.all().length
+                ns = engines.all().length
             }while(es != ns)
             return blockEngines
         }
