@@ -13,9 +13,9 @@
 >实例源码
 
     BlockEngines.js
+![](BlockEngines.pic/BlockEngines.png)
 >使用步骤：
 
-![](BlockEngines.pic/BlockEngines.png)
 1. 引入BlockEngines 
    
     ```js
