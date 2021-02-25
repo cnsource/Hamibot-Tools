@@ -56,7 +56,7 @@
 
 3. 运行子脚本 
    ```js
-    lockEngines.instance().run("myfun",myfun.toString())
+    BlockEngines.instance().run("myfun",myfun.toString())
                           .run("myfun2",myfun2.toString())
    ```
     
