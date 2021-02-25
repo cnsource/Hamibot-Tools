@@ -11,7 +11,10 @@
     大家可以去写一下校园集结号上报界面自动选择口号和体温的功能。不过脚本要从点击我要上报按钮开始写！
 
 >使用步骤：
+
+![](BlockEngines.pic/BlockEngines.png)
 1. 引入BlockEngines
+   
     ```js
     var BlockEngines = {
         instance : function(){
