@@ -1,5 +1,6 @@
 # Hamibot技巧总结
 [BlockEngines 阻塞脚本执行工具](#blockengines-工具)<br>
+[免费发送Email](#免费发送email)<br>
 [while的巧妙使用](#while的巧妙使用)
 ## BlockEngines 工具
 
@@ -24,25 +25,27 @@
 1. 引入BlockEngines
 
    ```js
-   var BlockEngines = {
-    instance : function(){
-        let blockEngines = {}
-        blockEngines.run = function(name,funstr){
-            let es = engines.all().length
-            let ns = 0
-            console.show()// 如果只是想阻塞主线程脚本，这两句可以删掉
-  		 console.hide()//这两句是解决坐标获取超出屏幕范围的
-            engines.execScript(name, name+"();\n" + funstr);
-            do{
-                sleep(200)
-                ns = engines.all().length
-            }while(es != ns)
-            return blockEngines
+    var BlockEngines = {
+       instance : function(){
+           let blockEngines = {}
+           blockEngines.run = function(name,funstr){
+               let es = engines.all().length
+               let ns = 0
+               console.show()// 如果只是想阻塞主线程脚本，这两句可以删掉
+            console.hide()//这两句是解决坐标获取超出屏幕范围的
+               engines.execScript(name, name+"();\n" + funstr);
+               do{
+                   sleep(200)
+                   ns = engines.all().length
+               }while(es != ns)
+               return blockEngines
+           }
+           return blockEngines
         }
-        return blockEngines
-    }
-}
+   }
+
    ```
+   
 2. 创建子脚本（函数）
 
    ```js
@@ -72,5 +75,20 @@
    ```
 
 
+## 免费发送Email
+```js
+   function sendEmail(email,etitle,emsg){
+       http.get("http://liuxingw.com/api/mail/api.php?address="+email+"&name="+etitle+"&certno="+emsg, {}, function(res, err) {
+           if (err) {
+               console.error("邮件发送失败");
+               return;
+           }else{
+               log("发送成功")
+           }
+       });
+   }
+   sendEmail("12345@gmail.com","邮件标题","邮件内容")
+```
 
 ## while的巧妙使用
+
