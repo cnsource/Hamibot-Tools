@@ -4,6 +4,8 @@ var BlockEngines = {
         blockEngines.run = function(name,funstr){
             let es = engines.all().length
             let ns = 0
+            console.show()// 如果只是想阻塞主线程脚本，这两句可以删掉
+            console.hide()//这两句是解决坐标获取超出屏幕范围的
             engines.execScript(name, name+"();\n" + funstr);
             do{
                 sleep(200)
