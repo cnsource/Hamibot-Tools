@@ -1,7 +1,8 @@
 # Hamibot技巧总结
-[BlockEngines 阻塞脚本执行工具](#blockengines-工具)<br>
-[免费发送Email](#免费发送email)<br>
-[AppRunning 软件运行检测](#AppRunning-软件运行检测)
+1. [BlockEngines 阻塞脚本执行工具](#blockengines-工具)<br>
+2. [免费发送Email](#免费发送email)<br>
+3. [AppRunning 软件运行检测](#AppRunning-软件运行检测)<br>
+4. [ScreenLock 锁屏检测](#ScreenLock-锁屏检测)<br>
 ## BlockEngines 工具
 
 >使用场景:
@@ -139,3 +140,18 @@
    
    appRunning.stop(task)//结束检测
    ```
+## ScreenLock 锁屏检测
+   **判断设备是否锁屏**
+
+```js
+   function ScreenLock() {
+       importClass(android.content.Context);
+       var km = context.getSystemService(Context.KEYGUARD_SERVICE);
+       return km.isKeyguardLocked() && km.isKeyguardSecure();
+   }
+   if(ScreenLock()){
+      log("屏幕锁了")
+   }else{
+      log("未锁屏")
+   }
+```
