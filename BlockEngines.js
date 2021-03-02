@@ -1,5 +1,4 @@
-var BlockEngines = {
-    instance : function(){
+var BlockEngines = function(){
         let blockEngines = {}
         blockEngines.run = function(name,funstr){
             let es = engines.all().length
@@ -13,9 +12,9 @@ var BlockEngines = {
             }while(es != ns)
             return blockEngines
         }
-        return blockEngines
-    }
+    return blockEngines
 }
+
 function myfun(){
     console.show()
     for(var i = 0;i<10;i++){
@@ -32,5 +31,6 @@ function myfun2(){
     }
     console.hide()
 }
-BlockEngines.instance().run("myfun",myfun.toString()).run("myfun2",myfun2.toString())
+var blockEngines = new BlockEngines()
+blockEngines.run("myfun",myfun.toString()).run("myfun2",myfun2.toString())
 log("脚本执行完毕")
