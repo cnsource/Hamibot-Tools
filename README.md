@@ -1,7 +1,7 @@
 # Hamibot技巧总结
 [BlockEngines 阻塞脚本执行工具](#blockengines-工具)<br>
 [免费发送Email](#免费发送email)<br>
-[while的巧妙使用](#while的巧妙使用)
+[AppRunning 软件运行检测](#AppRunning-软件运行检测)
 ## BlockEngines 工具
 
 >使用场景:
